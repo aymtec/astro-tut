@@ -1,6 +1,5 @@
 ---
-import "../styles/global.css";
-import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -21,15 +20,7 @@ const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-    <Navigation />
+<BaseLayout pageTitle={pageTitle}>
     <style define:vars={{skillColor, fontWeight, textCase}}>
       h1 {
         color: purple;
@@ -41,13 +32,8 @@ const textCase = "uppercase";
         text-transform: var(--textCase); 
       }
     </style>
-	</head>
-	<body>
-		<h1>{pageTitle}</h1>
 	  Astro is great Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
 	  <p>My skills are:</p>
 <ul>
   {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
-	</body>
-</html>
